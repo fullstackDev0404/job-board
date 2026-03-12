@@ -4,11 +4,7 @@
 @tailwind utilities;
 
 body {
-  @apply antialiased;
-}
-
-body.dark {
-  @apply bg-slate-950 text-white;
+  @apply antialiased bg-white text-black text-[14px] sm:text-[15px] leading-relaxed;
 }
 
 @layer base {

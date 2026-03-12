@@ -5,36 +5,69 @@ import Filters from './components/Filters';
 import './styles/tailwind.css';
 
 const MOCK_JOBS = [
-  { id: 1, title: 'Frontend Developer', department: 'Engineering', location: 'Remote', roleType: 'Full-time' },
-  { id: 2, title: 'Backend Developer', department: 'Engineering', location: 'Remote', roleType: 'Part-time' },
-  { id: 3, title: 'UI/UX Designer', department: 'Design', location: 'Hybrid', roleType: 'Contract' },
-  { id: 4, title: 'Data Scientist', department: 'Data', location: 'Remote', roleType: 'Full-time' },
-  { id: 5, title: 'DevOps Engineer', department: 'Engineering', location: 'On-site', roleType: 'Full-time' },
-  { id: 6, title: 'Product Manager', department: 'Product', location: 'On-site', roleType: 'Contract' },
+  {
+    id: 1,
+    title: 'Frontend Developer',
+    department: 'Engineering',
+    location: 'Remote',
+    roleType: 'Full-time',
+    description:
+      'Own the implementation of modern web interfaces in React, collaborate with designers on pixel-perfect UI, and ship performant, accessible experiences.',
+  },
+  {
+    id: 2,
+    title: 'Backend Developer',
+    department: 'Engineering',
+    location: 'Remote',
+    roleType: 'Part-time',
+    description:
+      'Design and build robust APIs, optimize database queries, and support new product features with scalable backend services.',
+  },
+  {
+    id: 3,
+    title: 'UI/UX Designer',
+    department: 'Design',
+    location: 'Hybrid',
+    roleType: 'Contract',
+    description:
+      'Craft interface flows, high-fidelity Figma designs, and interaction patterns that feel intuitive, delightful, and on-brand.',
+  },
+  {
+    id: 4,
+    title: 'Data Scientist',
+    department: 'Data',
+    location: 'Remote',
+    roleType: 'Full-time',
+    description:
+      'Turn raw product and business data into insights, build predictive models, and partner with product teams to inform roadmap decisions.',
+  },
+  {
+    id: 5,
+    title: 'DevOps Engineer',
+    department: 'Engineering',
+    location: 'On-site',
+    roleType: 'Full-time',
+    description:
+      'Automate CI/CD pipelines, harden infrastructure, and ensure observability so product teams can ship with confidence.',
+  },
+  {
+    id: 6,
+    title: 'Product Manager',
+    department: 'Product',
+    location: 'On-site',
+    roleType: 'Contract',
+    description:
+      'Define product vision, prioritize the roadmap, and work closely with engineering and design to deliver impactful releases on time.',
+  },
 ];
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [selectedRoleType, setSelectedRoleType] = useState('');
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
-    } else if (window.matchMedia) {
-      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-  }, []);
-
-  useEffect(() => {
-    document.body.classList.toggle('dark', darkMode);
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  }, [darkMode]);
 
   useEffect(() => {
     let cancelled = false;
@@ -65,28 +98,19 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white">
-      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col gap-6 lg:flex-row">
+    <div className="min-h-screen bg-white text-black">
+      <div className="mx-auto px-6 sm:px-10 py-12 flex flex-col gap-8 lg:flex-row">
         <aside className="w-full lg:w-1/3">
-          <div className="bg-white/10 dark:bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-[0_18px_45px_rgba(15,23,42,0.75)] space-y-6">
-            <div className="flex items-center justify-between">
+          <div className="bg-white border border-neutral-200 rounded-3xl px-6 py-7 sm:px-7 sm:py-8 shadow-sm space-y-6">
+            <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Interface Mastery</p>
-                <h2 className="mt-1 text-lg font-semibold text-white">Dynamic Job Board</h2>
+                <h2 className="text-xl sm:text-2xl font-semibold text-slate-900">
+                  Dynamic Job Board
+                </h2>
+                <p className="mt-2 text-xs sm:text-sm text-slate-500">
+                  Filter open roles by department and engagement type.
+                </p>
               </div>
-              <button
-                type="button"
-                aria-label="Toggle dark mode"
-                aria-pressed={darkMode}
-                onClick={() => setDarkMode((prev) => !prev)}
-                className="relative inline-flex items-center cursor-pointer transition-colors duration-300 rounded-full w-16 h-8 bg-slate-700/70"
-              >
-                <span
-                  className={`absolute w-6 h-6 rounded-full bg-gradient-to-br from-amber-300 to-rose-400 shadow-md transform transition-transform duration-300 ${
-                    darkMode ? 'translate-x-8' : 'translate-x-1'
-                  }`}
-                />
-              </button>
             </div>
 
             <Filters

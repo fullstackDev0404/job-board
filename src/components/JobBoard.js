@@ -8,54 +8,50 @@ const JobBoard = ({ jobs, loading, error, totalJobs }) => {
 
   return (
     <section className="relative">
-      <header className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <header className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
-            Rudratek • Talent Network
-          </p>
-          <h1 className="mt-2 text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-sky-300 via-cyan-300 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(56,189,248,0.35)]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-black">
             Dynamic Job Board
           </h1>
-          <p className="mt-2 text-sm text-slate-300 max-w-xl">
-            Explore live openings across Engineering, Product, Design, and Data. Filters update instantly
-            so you can focus on what truly fits you.
+          <p className="mt-3 text-sm sm:text-base text-neutral-600 max-w-2xl">
+            Explore roles across Engineering, Product, Design, and Data with instant filtering.
           </p>
         </div>
 
-        <div className="flex flex-col items-end gap-2">
-          <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/60 border border-sky-400/30 px-4 py-1 shadow-[0_0_25px_rgba(56,189,248,0.45)]">
+        <div className="flex flex-col items-start sm:items-end gap-2">
+          <div className="inline-flex items-center gap-2 rounded-full bg-black text-white border border-black px-4 py-1.5">
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs font-medium text-slate-100">
+            <span className="text-xs sm:text-sm font-medium">
               {visibleCount} roles visible
               {totalJobs ? ` · ${totalJobs} total` : ''}
             </span>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-slate-200">
-            <span className="inline-flex h-2 w-2 rounded-full bg-sky-400" />
+          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-neutral-300 px-3 py-1 text-xs text-neutral-700">
+            <span className="inline-flex h-2 w-2 rounded-full bg-black" />
             <span>{location}</span>
           </div>
         </div>
       </header>
 
       {loading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mt-4" aria-label="Loading job cards">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7 mt-4" aria-label="Loading job cards">
           {Array.from({ length: 6 }).map((_, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_14px_40px_rgba(15,23,42,0.85)] animate-pulse"
+              className="relative overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm animate-pulse"
             >
               <div className="px-5 pt-5 pb-6 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-slate-700/60" />
+                  <div className="h-10 w-10 rounded-full bg-neutral-200" />
                   <div className="space-y-2 flex-1">
-                    <div className="h-4 w-3/4 rounded bg-slate-700/60" />
-                    <div className="h-3 w-1/2 rounded bg-slate-800/70" />
+                    <div className="h-4 w-3/4 rounded bg-neutral-200" />
+                    <div className="h-3 w-1/2 rounded bg-neutral-100" />
                   </div>
                 </div>
-                <div className="h-3 w-2/3 rounded bg-slate-800/70" />
+                <div className="h-3 w-2/3 rounded bg-neutral-100" />
                 <div className="flex gap-2 pt-2">
-                  <div className="h-6 w-16 rounded-full bg-slate-800/70" />
-                  <div className="h-6 w-20 rounded-full bg-slate-800/70" />
+                  <div className="h-6 w-16 rounded-full bg-neutral-100" />
+                  <div className="h-6 w-20 rounded-full bg-neutral-100" />
                 </div>
               </div>
             </div>
@@ -79,7 +75,7 @@ const JobBoard = ({ jobs, loading, error, totalJobs }) => {
       )}
 
       {!loading && !error && jobs.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7 mt-4">
           {jobs.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
