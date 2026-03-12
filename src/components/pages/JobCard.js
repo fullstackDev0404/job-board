@@ -14,20 +14,20 @@ const JobCard = ({ job }) => {
               {department?.[0] || '?'}
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-semibold text-slate-900 leading-snug">
+              <p className="text-3xl sm:text-3xl font-semibold text-slate-900 leading-snug">
                 {title}
-              </h2>
-              <p className="mt-1.5 text-sm sm:text-base text-slate-500">
+              </p>
+              <p className="mt-1.5 text-xl sm:text-xl text-slate-500">
                 {department} • {roleType}
               </p>
             </div>
           </div>
-          <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5 text-[0.75rem] sm:text-xs font-medium uppercase tracking-wide text-teal-700">
+          <span className="inline-flex items-center rounded-full border border-teal-200 bg-teal-50 px-4 py-1.5 text-[1rem] sm:text-sm font-medium uppercase tracking-wide text-teal-700">
             Open
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2.5 text-[0.8rem] sm:text-sm text-slate-600">
+        <div className="flex flex-wrap items-center gap-2.5 text-[1rem] sm:text-base text-slate-600">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 px-3 py-1.5 border border-slate-200">
             <span className="h-2 w-2 rounded-full bg-teal-500" />
             <span>{location}</span>
@@ -38,7 +38,7 @@ const JobCard = ({ job }) => {
         </div>
 
         {description && (
-          <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-700 line-clamp-3">
+          <p className="mt-3 text-base sm:text-xl leading-relaxed text-slate-700 line-clamp-3">
             {description}
           </p>
         )}
