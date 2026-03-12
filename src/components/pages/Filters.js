@@ -1,6 +1,5 @@
 // src/components/Filters.js
-import React from 'react';
-import FilterSelect from './FilterSelect';
+import FilterSelect from '../common/FilterSelect';
 
 const departmentOptions = [
   { value: '', label: 'All departments' },

@@ -1,7 +1,7 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
-import JobBoard from './components/JobBoard';
-import Filters from './components/Filters';
+import JobBoard from './components/pages/JobBoard';
+import Filters from './components/pages/Filters';
 import './styles/tailwind.css';
 
 const MOCK_JOBS = [
