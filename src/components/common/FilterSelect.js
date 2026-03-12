@@ -14,10 +14,10 @@ const FilterSelect = ({
   options,
 }) => {
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <label
         htmlFor={id}
-        className="block text-xs sm:text-sm font-medium tracking-wide text-neutral-800 uppercase"
+        className="block text-xs sm:text-sm font-semibold tracking-[0.2em] text-slate-700 uppercase"
       >
         {label}
       </label>
@@ -26,7 +26,7 @@ const FilterSelect = ({
           id={id}
           value={value}
           onChange={onChange}
-          className="w-full appearance-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 pr-10 text-sm sm:text-base text-black focus:outline-none focus:ring-1 focus:ring-black focus:border-black"
+          className="w-full appearance-none rounded-2xl border border-slate-200 bg-white px-4 py-3.5 pr-11 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
         >
           {options.map((option) => (
             <FilterOption
@@ -36,7 +36,7 @@ const FilterSelect = ({
             />
           ))}
         </select>
-        <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-400 text-xs">
+        <span className="pointer-events-none absolute inset-y-0 right-3.5 flex items-center text-slate-400 text-sm">
           ▾
         </span>
       </div>

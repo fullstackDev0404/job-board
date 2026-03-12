@@ -98,16 +98,16 @@ function App() {
   });
 
   return (
-    <div className="min-h-screen bg-white text-black">
-      <div className="mx-auto px-6 sm:px-10 py-12 flex flex-col gap-8 lg:flex-row">
+    <div className="min-h-screen bg-slate-50 text-slate-900 text-base sm:text-lg">
+      <div className="mx-auto px-6 sm:px-10 py-14 sm:py-16 flex flex-col gap-10 lg:flex-row">
         <aside className="w-full lg:w-1/3">
-          <div className="bg-white border border-neutral-200 rounded-3xl px-6 py-7 sm:px-7 sm:py-8 shadow-sm space-y-6">
+          <div className="bg-white/90 border border-slate-100 rounded-3xl px-7 py-8 sm:px-8 sm:py-9 shadow-sm shadow-slate-100/70 space-y-7 backdrop-blur">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <h2 className="text-xl sm:text-2xl font-semibold text-slate-900">
+                <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
                   Dynamic Job Board
                 </h2>
-                <p className="mt-2 text-xs sm:text-sm text-slate-500">
+                <p className="mt-3 text-sm sm:text-base text-slate-500">
                   Filter open roles by department and engagement type.
                 </p>
               </div>

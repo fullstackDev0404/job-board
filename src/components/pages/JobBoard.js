@@ -8,37 +8,37 @@ const JobBoard = ({ jobs, loading, error, totalJobs }) => {
 
   return (
     <section className="relative">
-      <header className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+      <header className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-black">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-slate-900">
             Dynamic Job Board
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-neutral-600 max-w-2xl">
+          <p className="mt-4 text-base sm:text-lg text-slate-500 max-w-2xl">
             Explore roles across Engineering, Product, Design, and Data with instant filtering.
           </p>
         </div>
 
-        <div className="flex flex-col items-start sm:items-end gap-2">
-          <div className="inline-flex items-center gap-2 rounded-full bg-black text-white border border-black px-4 py-1.5">
-            <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-xs sm:text-sm font-medium">
+        <div className="flex flex-col items-start sm:items-end gap-3">
+          <div className="inline-flex items-center gap-2.5 rounded-full bg-teal-600 text-teal-50 border border-teal-500/80 px-5 py-2 shadow-sm shadow-teal-100/70">
+            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-300 animate-pulse" />
+            <span className="text-sm sm:text-base font-medium">
               {visibleCount} roles visible
               {totalJobs ? ` · ${totalJobs} total` : ''}
             </span>
           </div>
-          <div className="inline-flex items-center gap-2 rounded-full bg-white border border-neutral-300 px-3 py-1 text-xs text-neutral-700">
-            <span className="inline-flex h-2 w-2 rounded-full bg-black" />
+          <div className="inline-flex items-center gap-2.5 rounded-full bg-white border border-slate-200 px-4 py-1.5 text-xs sm:text-sm text-slate-600">
+            <span className="inline-flex h-2 w-2 rounded-full bg-slate-900" />
             <span>{location}</span>
           </div>
         </div>
       </header>
 
       {loading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7 mt-4" aria-label="Loading job cards">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mt-5" aria-label="Loading job cards">
           {Array.from({ length: 6 }).map((_, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-sm animate-pulse"
+              className="relative overflow-hidden rounded-2xl border border-slate-100 bg-white/80 shadow-sm animate-pulse"
             >
               <div className="px-5 pt-5 pb-6 space-y-4">
                 <div className="flex items-center gap-3">
@@ -60,22 +60,22 @@ const JobBoard = ({ jobs, loading, error, totalJobs }) => {
       )}
 
       {!loading && error && (
-        <div className="mt-6 rounded-xl border border-rose-500/40 bg-rose-950/40 px-4 py-3 text-sm text-rose-100">
+        <div className="mt-8 rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-base text-rose-800">
           {error}
         </div>
       )}
 
       {!loading && !error && jobs.length === 0 && (
-        <div className="mt-6 rounded-2xl border border-dashed border-slate-600/60 bg-slate-900/60 px-6 py-10 text-center">
-          <p className="text-base font-medium text-slate-100">No roles match your current filters.</p>
-          <p className="mt-2 text-sm text-slate-400">
+        <div className="mt-8 rounded-2xl border border-dashed border-slate-300 bg-slate-50 px-7 py-12 text-center">
+          <p className="text-lg font-medium text-slate-800">No roles match your current filters.</p>
+          <p className="mt-3 text-sm sm:text-base text-slate-500">
             Try resetting one of the filters or exploring a different department or engagement type.
           </p>
         </div>
       )}
 
       {!loading && !error && jobs.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-7 mt-4">
+        <div className="grid grid-cols-1 xl:grid-cols-2 xxl:grid-cols-3 gap-8 mt-5">
           {jobs.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
